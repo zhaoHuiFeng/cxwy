@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.haojukej.mapper.WyBussinessInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.haojukej.pojo.WyBussinessInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="bussinessType" property="bussinesstype" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="bussinessName" property="bussinessname" jdbcType="VARCHAR" />
+    <result column="bussinessAddress" property="bussinessaddress" jdbcType="VARCHAR" />
+    <result column="bussinessMobile" property="bussinessmobile" jdbcType="VARCHAR" />
+    <result column="bussinessCategory" property="bussinesscategory" jdbcType="VARCHAR" />
+    <result column="settledAmount" property="settledamount" jdbcType="DOUBLE" />
+    <result column="surplusAmount" property="surplusamount" jdbcType="DOUBLE" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="isOnline" property="isonline" jdbcType="VARCHAR" />
+    <result column="bussinessCount" property="bussinesscount" jdbcType="VARCHAR" />
+    <result column="bussinessCounter" property="bussinesscounter" jdbcType="VARCHAR" />
+    <result column="bussinessImage" property="bussinessimage" jdbcType="VARCHAR" />
+    <result column="deleteFlag" property="deleteflag" jdbcType="VARCHAR" />
+    <result column="bussiness_address" property="bussinessAddress" jdbcType="VARCHAR" />
+    <result column="bussiness_category" property="bussinessCategory" jdbcType="VARCHAR" />
+    <result column="bussiness_count" property="bussinessCount" jdbcType="VARCHAR" />
+    <result column="bussiness_counter" property="bussinessCounter" jdbcType="VARCHAR" />
+    <result column="bussiness_image" property="bussinessImage" jdbcType="VARCHAR" />
+    <result column="bussiness_mobile" property="bussinessMobile" jdbcType="VARCHAR" />
+    <result column="bussiness_name" property="bussinessName" jdbcType="VARCHAR" />
+    <result column="bussiness_type" property="bussinessType" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="delete_flag" property="deleteFlag" jdbcType="VARCHAR" />
+    <result column="is_online" property="isOnline" jdbcType="VARCHAR" />
+    <result column="settled_amount" property="settledAmount" jdbcType="DOUBLE" />
+    <result column="surplus_amount" property="surplusAmount" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, bussinessType, name, password, bussinessName, bussinessAddress, bussinessMobile, 
+    bussinessCategory, settledAmount, surplusAmount, createTime, isOnline, bussinessCount, 
+    bussinessCounter, bussinessImage, deleteFlag, bussiness_address, bussiness_category, 
+    bussiness_count, bussiness_counter, bussiness_image, bussiness_mobile, bussiness_name, 
+    bussiness_type, create_time, delete_flag, is_online, settled_amount, surplus_amount
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wy_bussiness_info_tbl
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wy_bussiness_info_tbl
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.haojukej.pojo.WyBussinessInfo" >
+    insert into wy_bussiness_info_tbl (id, bussinessType, name, 
+      password, bussinessName, bussinessAddress, 
+      bussinessMobile, bussinessCategory, settledAmount, 
+      surplusAmount, createTime, isOnline, 
+      bussinessCount, bussinessCounter, bussinessImage, 
+      deleteFlag, bussiness_address, bussiness_category, 
+      bussiness_count, bussiness_counter, bussiness_image, 
+      bussiness_mobile, bussiness_name, bussiness_type, 
+      create_time, delete_flag, is_online, 
+      settled_amount, surplus_amount)
+    values (#{id,jdbcType=INTEGER}, #{bussinesstype,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{bussinessname,jdbcType=VARCHAR}, #{bussinessaddress,jdbcType=VARCHAR}, 
+      #{bussinessmobile,jdbcType=VARCHAR}, #{bussinesscategory,jdbcType=VARCHAR}, #{settledamount,jdbcType=DOUBLE}, 
+      #{surplusamount,jdbcType=DOUBLE}, #{createtime,jdbcType=TIMESTAMP}, #{isonline,jdbcType=VARCHAR}, 
+      #{bussinesscount,jdbcType=VARCHAR}, #{bussinesscounter,jdbcType=VARCHAR}, #{bussinessimage,jdbcType=VARCHAR}, 
+      #{deleteflag,jdbcType=VARCHAR}, #{bussinessAddress,jdbcType=VARCHAR}, #{bussinessCategory,jdbcType=VARCHAR}, 
+      #{bussinessCount,jdbcType=VARCHAR}, #{bussinessCounter,jdbcType=VARCHAR}, #{bussinessImage,jdbcType=VARCHAR}, 
+      #{bussinessMobile,jdbcType=VARCHAR}, #{bussinessName,jdbcType=VARCHAR}, #{bussinessType,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{deleteFlag,jdbcType=VARCHAR}, #{isOnline,jdbcType=VARCHAR}, 
+      #{settledAmount,jdbcType=DOUBLE}, #{surplusAmount,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.haojukej.pojo.WyBussinessInfo" >
+    insert into wy_bussiness_info_tbl
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="bussinesstype != null" >
+        bussinessType,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="bussinessname != null" >
+        bussinessName,
+      </if>
+      <if test="bussinessaddress != null" >
+        bussinessAddress,
+      </if>
+      <if test="bussinessmobile != null" >
+        bussinessMobile,
+      </if>
+      <if test="bussinesscategory != null" >
+        bussinessCategory,
+      </if>
+      <if test="settledamount != null" >
+        settledAmount,
+      </if>
+      <if test="surplusamount != null" >
+        surplusAmount,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="isonline != null" >
+        isOnline,
+      </if>
+      <if test="bussinesscount != null" >
+        bussinessCount,
+      </if>
+      <if test="bussinesscounter != null" >
+        bussinessCounter,
+      </if>
+      <if test="bussinessimage != null" >
+        bussinessImage,
+      </if>
+      <if test="deleteflag != null" >
+        deleteFlag,
+      </if>
+      <if test="bussinessAddress != null" >
+        bussiness_address,
+      </if>
+      <if test="bussinessCategory != null" >
+        bussiness_category,
+      </if>
+      <if test="bussinessCount != null" >
+        bussiness_count,
+      </if>
+      <if test="bussinessCounter != null" >
+        bussiness_counter,
+      </if>
+      <if test="bussinessImage != null" >
+        bussiness_image,
+      </if>
+      <if test="bussinessMobile != null" >
+        bussiness_mobile,
+      </if>
+      <if test="bussinessName != null" >
+        bussiness_name,
+      </if>
+      <if test="bussinessType != null" >
+        bussiness_type,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag,
+      </if>
+      <if test="isOnline != null" >
+        is_online,
+      </if>
+      <if test="settledAmount != null" >
+        settled_amount,
+      </if>
+      <if test="surplusAmount != null" >
+        surplus_amount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="bussinesstype != null" >
+        #{bussinesstype,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessname != null" >
+        #{bussinessname,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessaddress != null" >
+        #{bussinessaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessmobile != null" >
+        #{bussinessmobile,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinesscategory != null" >
+        #{bussinesscategory,jdbcType=VARCHAR},
+      </if>
+      <if test="settledamount != null" >
+        #{settledamount,jdbcType=DOUBLE},
+      </if>
+      <if test="surplusamount != null" >
+        #{surplusamount,jdbcType=DOUBLE},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isonline != null" >
+        #{isonline,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinesscount != null" >
+        #{bussinesscount,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinesscounter != null" >
+        #{bussinesscounter,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessimage != null" >
+        #{bussinessimage,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteflag != null" >
+        #{deleteflag,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessAddress != null" >
+        #{bussinessAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessCategory != null" >
+        #{bussinessCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessCount != null" >
+        #{bussinessCount,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessCounter != null" >
+        #{bussinessCounter,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessImage != null" >
+        #{bussinessImage,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessMobile != null" >
+        #{bussinessMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessName != null" >
+        #{bussinessName,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessType != null" >
+        #{bussinessType,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteFlag != null" >
+        #{deleteFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="isOnline != null" >
+        #{isOnline,jdbcType=VARCHAR},
+      </if>
+      <if test="settledAmount != null" >
+        #{settledAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="surplusAmount != null" >
+        #{surplusAmount,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haojukej.pojo.WyBussinessInfo" >
+    update wy_bussiness_info_tbl
+    <set >
+      <if test="bussinesstype != null" >
+        bussinessType = #{bussinesstype,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessname != null" >
+        bussinessName = #{bussinessname,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessaddress != null" >
+        bussinessAddress = #{bussinessaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessmobile != null" >
+        bussinessMobile = #{bussinessmobile,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinesscategory != null" >
+        bussinessCategory = #{bussinesscategory,jdbcType=VARCHAR},
+      </if>
+      <if test="settledamount != null" >
+        settledAmount = #{settledamount,jdbcType=DOUBLE},
+      </if>
+      <if test="surplusamount != null" >
+        surplusAmount = #{surplusamount,jdbcType=DOUBLE},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isonline != null" >
+        isOnline = #{isonline,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinesscount != null" >
+        bussinessCount = #{bussinesscount,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinesscounter != null" >
+        bussinessCounter = #{bussinesscounter,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessimage != null" >
+        bussinessImage = #{bussinessimage,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteflag != null" >
+        deleteFlag = #{deleteflag,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessAddress != null" >
+        bussiness_address = #{bussinessAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessCategory != null" >
+        bussiness_category = #{bussinessCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessCount != null" >
+        bussiness_count = #{bussinessCount,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessCounter != null" >
+        bussiness_counter = #{bussinessCounter,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessImage != null" >
+        bussiness_image = #{bussinessImage,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessMobile != null" >
+        bussiness_mobile = #{bussinessMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessName != null" >
+        bussiness_name = #{bussinessName,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessType != null" >
+        bussiness_type = #{bussinessType,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag = #{deleteFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="isOnline != null" >
+        is_online = #{isOnline,jdbcType=VARCHAR},
+      </if>
+      <if test="settledAmount != null" >
+        settled_amount = #{settledAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="surplusAmount != null" >
+        surplus_amount = #{surplusAmount,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.haojukej.pojo.WyBussinessInfo" >
+    update wy_bussiness_info_tbl
+    set bussinessType = #{bussinesstype,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      bussinessName = #{bussinessname,jdbcType=VARCHAR},
+      bussinessAddress = #{bussinessaddress,jdbcType=VARCHAR},
+      bussinessMobile = #{bussinessmobile,jdbcType=VARCHAR},
+      bussinessCategory = #{bussinesscategory,jdbcType=VARCHAR},
+      settledAmount = #{settledamount,jdbcType=DOUBLE},
+      surplusAmount = #{surplusamount,jdbcType=DOUBLE},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      isOnline = #{isonline,jdbcType=VARCHAR},
+      bussinessCount = #{bussinesscount,jdbcType=VARCHAR},
+      bussinessCounter = #{bussinesscounter,jdbcType=VARCHAR},
+      bussinessImage = #{bussinessimage,jdbcType=VARCHAR},
+      deleteFlag = #{deleteflag,jdbcType=VARCHAR},
+      bussiness_address = #{bussinessAddress,jdbcType=VARCHAR},
+      bussiness_category = #{bussinessCategory,jdbcType=VARCHAR},
+      bussiness_count = #{bussinessCount,jdbcType=VARCHAR},
+      bussiness_counter = #{bussinessCounter,jdbcType=VARCHAR},
+      bussiness_image = #{bussinessImage,jdbcType=VARCHAR},
+      bussiness_mobile = #{bussinessMobile,jdbcType=VARCHAR},
+      bussiness_name = #{bussinessName,jdbcType=VARCHAR},
+      bussiness_type = #{bussinessType,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      delete_flag = #{deleteFlag,jdbcType=VARCHAR},
+      is_online = #{isOnline,jdbcType=VARCHAR},
+      settled_amount = #{settledAmount,jdbcType=DOUBLE},
+      surplus_amount = #{surplusAmount,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

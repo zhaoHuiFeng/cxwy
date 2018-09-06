@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.haojukej.mapper.SystemMapper" >
+  <resultMap id="BaseResultMap" type="com.haojukej.pojo.System" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="version_name" property="versionName" jdbcType="VARCHAR" />
+    <result column="version_code" property="versionCode" jdbcType="VARCHAR" />
+    <result column="author_name" property="authorName" jdbcType="VARCHAR" />
+    <result column="domain_name" property="domainName" jdbcType="VARCHAR" />
+    <result column="server_ip" property="serverIp" jdbcType="VARCHAR" />
+    <result column="server_surroundings" property="serverSurroundings" jdbcType="VARCHAR" />
+    <result column="database_code" property="databaseCode" jdbcType="VARCHAR" />
+    <result column="max_upload" property="maxUpload" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="INTEGER" />
+    <result column="mark" property="mark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, version_name, version_code, author_name, domain_name, server_ip, server_surroundings, 
+    database_code, max_upload, create_time, mark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from system
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from system
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.haojukej.pojo.System" >
+    insert into system (id, name, version_name, 
+      version_code, author_name, domain_name, 
+      server_ip, server_surroundings, database_code, 
+      max_upload, create_time, mark
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{versionName,jdbcType=VARCHAR}, 
+      #{versionCode,jdbcType=VARCHAR}, #{authorName,jdbcType=VARCHAR}, #{domainName,jdbcType=VARCHAR}, 
+      #{serverIp,jdbcType=VARCHAR}, #{serverSurroundings,jdbcType=VARCHAR}, #{databaseCode,jdbcType=VARCHAR}, 
+      #{maxUpload,jdbcType=VARCHAR}, #{createTime,jdbcType=INTEGER}, #{mark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.haojukej.pojo.System" >
+    insert into system
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="versionName != null" >
+        version_name,
+      </if>
+      <if test="versionCode != null" >
+        version_code,
+      </if>
+      <if test="authorName != null" >
+        author_name,
+      </if>
+      <if test="domainName != null" >
+        domain_name,
+      </if>
+      <if test="serverIp != null" >
+        server_ip,
+      </if>
+      <if test="serverSurroundings != null" >
+        server_surroundings,
+      </if>
+      <if test="databaseCode != null" >
+        database_code,
+      </if>
+      <if test="maxUpload != null" >
+        max_upload,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="mark != null" >
+        mark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="versionName != null" >
+        #{versionName,jdbcType=VARCHAR},
+      </if>
+      <if test="versionCode != null" >
+        #{versionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="authorName != null" >
+        #{authorName,jdbcType=VARCHAR},
+      </if>
+      <if test="domainName != null" >
+        #{domainName,jdbcType=VARCHAR},
+      </if>
+      <if test="serverIp != null" >
+        #{serverIp,jdbcType=VARCHAR},
+      </if>
+      <if test="serverSurroundings != null" >
+        #{serverSurroundings,jdbcType=VARCHAR},
+      </if>
+      <if test="databaseCode != null" >
+        #{databaseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="maxUpload != null" >
+        #{maxUpload,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="mark != null" >
+        #{mark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haojukej.pojo.System" >
+    update system
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="versionName != null" >
+        version_name = #{versionName,jdbcType=VARCHAR},
+      </if>
+      <if test="versionCode != null" >
+        version_code = #{versionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="authorName != null" >
+        author_name = #{authorName,jdbcType=VARCHAR},
+      </if>
+      <if test="domainName != null" >
+        domain_name = #{domainName,jdbcType=VARCHAR},
+      </if>
+      <if test="serverIp != null" >
+        server_ip = #{serverIp,jdbcType=VARCHAR},
+      </if>
+      <if test="serverSurroundings != null" >
+        server_surroundings = #{serverSurroundings,jdbcType=VARCHAR},
+      </if>
+      <if test="databaseCode != null" >
+        database_code = #{databaseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="maxUpload != null" >
+        max_upload = #{maxUpload,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="mark != null" >
+        mark = #{mark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.haojukej.pojo.System" >
+    update system
+    set name = #{name,jdbcType=VARCHAR},
+      version_name = #{versionName,jdbcType=VARCHAR},
+      version_code = #{versionCode,jdbcType=VARCHAR},
+      author_name = #{authorName,jdbcType=VARCHAR},
+      domain_name = #{domainName,jdbcType=VARCHAR},
+      server_ip = #{serverIp,jdbcType=VARCHAR},
+      server_surroundings = #{serverSurroundings,jdbcType=VARCHAR},
+      database_code = #{databaseCode,jdbcType=VARCHAR},
+      max_upload = #{maxUpload,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=INTEGER},
+      mark = #{mark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

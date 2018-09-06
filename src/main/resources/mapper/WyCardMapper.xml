@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.haojukej.mapper.WyCardMapper" >
+  <resultMap id="BaseResultMap" type="com.haojukej.pojo.WyCard" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="cardPrice" property="cardprice" jdbcType="DOUBLE" />
+    <result column="cardName" property="cardname" jdbcType="VARCHAR" />
+    <result column="cardBackgroundImage" property="cardbackgroundimage" jdbcType="VARCHAR" />
+    <result column="cardInfo" property="cardinfo" jdbcType="VARCHAR" />
+    <result column="count" property="count" jdbcType="INTEGER" />
+    <result column="deleteFlag" property="deleteflag" jdbcType="VARCHAR" />
+    <result column="getUrl" property="geturl" jdbcType="VARCHAR" />
+    <result column="card_background_image" property="cardBackgroundImage" jdbcType="VARCHAR" />
+    <result column="card_info" property="cardInfo" jdbcType="VARCHAR" />
+    <result column="card_name" property="cardName" jdbcType="VARCHAR" />
+    <result column="card_price" property="cardPrice" jdbcType="DOUBLE" />
+    <result column="delete_flag" property="deleteFlag" jdbcType="VARCHAR" />
+    <result column="get_url" property="getUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, cardPrice, cardName, cardBackgroundImage, cardInfo, count, deleteFlag, getUrl, 
+    card_background_image, card_info, card_name, card_price, delete_flag, get_url
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wy_card_tbl
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wy_card_tbl
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.haojukej.pojo.WyCard" >
+    insert into wy_card_tbl (id, cardPrice, cardName, 
+      cardBackgroundImage, cardInfo, count, 
+      deleteFlag, getUrl, card_background_image, 
+      card_info, card_name, card_price, 
+      delete_flag, get_url)
+    values (#{id,jdbcType=INTEGER}, #{cardprice,jdbcType=DOUBLE}, #{cardname,jdbcType=VARCHAR}, 
+      #{cardbackgroundimage,jdbcType=VARCHAR}, #{cardinfo,jdbcType=VARCHAR}, #{count,jdbcType=INTEGER}, 
+      #{deleteflag,jdbcType=VARCHAR}, #{geturl,jdbcType=VARCHAR}, #{cardBackgroundImage,jdbcType=VARCHAR}, 
+      #{cardInfo,jdbcType=VARCHAR}, #{cardName,jdbcType=VARCHAR}, #{cardPrice,jdbcType=DOUBLE}, 
+      #{deleteFlag,jdbcType=VARCHAR}, #{getUrl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.haojukej.pojo.WyCard" >
+    insert into wy_card_tbl
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cardprice != null" >
+        cardPrice,
+      </if>
+      <if test="cardname != null" >
+        cardName,
+      </if>
+      <if test="cardbackgroundimage != null" >
+        cardBackgroundImage,
+      </if>
+      <if test="cardinfo != null" >
+        cardInfo,
+      </if>
+      <if test="count != null" >
+        count,
+      </if>
+      <if test="deleteflag != null" >
+        deleteFlag,
+      </if>
+      <if test="geturl != null" >
+        getUrl,
+      </if>
+      <if test="cardBackgroundImage != null" >
+        card_background_image,
+      </if>
+      <if test="cardInfo != null" >
+        card_info,
+      </if>
+      <if test="cardName != null" >
+        card_name,
+      </if>
+      <if test="cardPrice != null" >
+        card_price,
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag,
+      </if>
+      <if test="getUrl != null" >
+        get_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cardprice != null" >
+        #{cardprice,jdbcType=DOUBLE},
+      </if>
+      <if test="cardname != null" >
+        #{cardname,jdbcType=VARCHAR},
+      </if>
+      <if test="cardbackgroundimage != null" >
+        #{cardbackgroundimage,jdbcType=VARCHAR},
+      </if>
+      <if test="cardinfo != null" >
+        #{cardinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null" >
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="deleteflag != null" >
+        #{deleteflag,jdbcType=VARCHAR},
+      </if>
+      <if test="geturl != null" >
+        #{geturl,jdbcType=VARCHAR},
+      </if>
+      <if test="cardBackgroundImage != null" >
+        #{cardBackgroundImage,jdbcType=VARCHAR},
+      </if>
+      <if test="cardInfo != null" >
+        #{cardInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardName != null" >
+        #{cardName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardPrice != null" >
+        #{cardPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="deleteFlag != null" >
+        #{deleteFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="getUrl != null" >
+        #{getUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haojukej.pojo.WyCard" >
+    update wy_card_tbl
+    <set >
+      <if test="cardprice != null" >
+        cardPrice = #{cardprice,jdbcType=DOUBLE},
+      </if>
+      <if test="cardname != null" >
+        cardName = #{cardname,jdbcType=VARCHAR},
+      </if>
+      <if test="cardbackgroundimage != null" >
+        cardBackgroundImage = #{cardbackgroundimage,jdbcType=VARCHAR},
+      </if>
+      <if test="cardinfo != null" >
+        cardInfo = #{cardinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null" >
+        count = #{count,jdbcType=INTEGER},
+      </if>
+      <if test="deleteflag != null" >
+        deleteFlag = #{deleteflag,jdbcType=VARCHAR},
+      </if>
+      <if test="geturl != null" >
+        getUrl = #{geturl,jdbcType=VARCHAR},
+      </if>
+      <if test="cardBackgroundImage != null" >
+        card_background_image = #{cardBackgroundImage,jdbcType=VARCHAR},
+      </if>
+      <if test="cardInfo != null" >
+        card_info = #{cardInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardName != null" >
+        card_name = #{cardName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardPrice != null" >
+        card_price = #{cardPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag = #{deleteFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="getUrl != null" >
+        get_url = #{getUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.haojukej.pojo.WyCard" >
+    update wy_card_tbl
+    set cardPrice = #{cardprice,jdbcType=DOUBLE},
+      cardName = #{cardname,jdbcType=VARCHAR},
+      cardBackgroundImage = #{cardbackgroundimage,jdbcType=VARCHAR},
+      cardInfo = #{cardinfo,jdbcType=VARCHAR},
+      count = #{count,jdbcType=INTEGER},
+      deleteFlag = #{deleteflag,jdbcType=VARCHAR},
+      getUrl = #{geturl,jdbcType=VARCHAR},
+      card_background_image = #{cardBackgroundImage,jdbcType=VARCHAR},
+      card_info = #{cardInfo,jdbcType=VARCHAR},
+      card_name = #{cardName,jdbcType=VARCHAR},
+      card_price = #{cardPrice,jdbcType=DOUBLE},
+      delete_flag = #{deleteFlag,jdbcType=VARCHAR},
+      get_url = #{getUrl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

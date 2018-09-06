@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.haojukej.mapper.WyUserRegisterMapper" >
+  <resultMap id="BaseResultMap" type="com.haojukej.pojo.WyUserRegister" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="openId" property="openid" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="EndingTime" property="endingtime" jdbcType="TIMESTAMP" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="IsFirstlly" property="isfirstlly" jdbcType="VARCHAR" />
+    <result column="MenberYoN" property="menberyon" jdbcType="VARCHAR" />
+    <result column="money" property="money" jdbcType="DOUBLE" />
+    <result column="Userstatus" property="userstatus" jdbcType="VARCHAR" />
+    <result column="OutDangerStatus" property="outdangerstatus" jdbcType="VARCHAR" />
+    <result column="wechatImage" property="wechatimage" jdbcType="VARCHAR" />
+    <result column="wechat" property="wechat" jdbcType="VARCHAR" />
+    <result column="carId" property="carid" jdbcType="VARCHAR" />
+    <result column="IDcard" property="idcard" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="deleteFlag" property="deleteflag" jdbcType="VARCHAR" />
+    <result column="realName" property="realname" jdbcType="VARCHAR" />
+    <result column="cardId" property="cardid" jdbcType="VARCHAR" />
+    <result column="VehicleLicenceUrl" property="vehiclelicenceurl" jdbcType="VARCHAR" />
+    <result column="car_id" property="carId" jdbcType="VARCHAR" />
+    <result column="card_id" property="cardId" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="delete_flag" property="deleteFlag" jdbcType="VARCHAR" />
+    <result column="ending_time" property="endingTime" jdbcType="TIMESTAMP" />
+    <result column="i_dcard" property="iDcard" jdbcType="VARCHAR" />
+    <result column="is_firstlly" property="isFirstlly" jdbcType="VARCHAR" />
+    <result column="menber_yon" property="menberYon" jdbcType="VARCHAR" />
+    <result column="open_id" property="openId" jdbcType="VARCHAR" />
+    <result column="out_danger_status" property="outDangerStatus" jdbcType="VARCHAR" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="vehicle_licence_url" property="vehicleLicenceUrl" jdbcType="VARCHAR" />
+    <result column="wechat_image" property="wechatImage" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, mobile, openId, createTime, password, EndingTime, account, IsFirstlly, 
+    MenberYoN, money, Userstatus, OutDangerStatus, wechatImage, wechat, carId, IDcard, 
+    sex, deleteFlag, realName, cardId, VehicleLicenceUrl, car_id, card_id, create_time, 
+    delete_flag, ending_time, i_dcard, is_firstlly, menber_yon, open_id, out_danger_status, 
+    real_name, vehicle_licence_url, wechat_image
+  </sql>
+
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from wy_user_register_tbl
+  </select>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wy_user_register_tbl
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wy_user_register_tbl
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.haojukej.pojo.WyUserRegister" >
+    insert into wy_user_register_tbl (id, name, mobile, 
+      openId, createTime, password, 
+      EndingTime, account, IsFirstlly, 
+      MenberYoN, money, Userstatus, 
+      OutDangerStatus, wechatImage, wechat, 
+      carId, IDcard, sex, 
+      deleteFlag, realName, cardId, 
+      VehicleLicenceUrl, car_id, card_id, 
+      create_time, delete_flag, ending_time, 
+      i_dcard, is_firstlly, menber_yon, 
+      open_id, out_danger_status, real_name, 
+      vehicle_licence_url, wechat_image)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{openid,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{password,jdbcType=VARCHAR}, 
+      #{endingtime,jdbcType=TIMESTAMP}, #{account,jdbcType=VARCHAR}, #{isfirstlly,jdbcType=VARCHAR}, 
+      #{menberyon,jdbcType=VARCHAR}, #{money,jdbcType=DOUBLE}, #{userstatus,jdbcType=VARCHAR}, 
+      #{outdangerstatus,jdbcType=VARCHAR}, #{wechatimage,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
+      #{carid,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{deleteflag,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, #{cardid,jdbcType=VARCHAR}, 
+      #{vehiclelicenceurl,jdbcType=VARCHAR}, #{carId,jdbcType=VARCHAR}, #{cardId,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{deleteFlag,jdbcType=VARCHAR}, #{endingTime,jdbcType=TIMESTAMP}, 
+      #{iDcard,jdbcType=VARCHAR}, #{isFirstlly,jdbcType=VARCHAR}, #{menberYon,jdbcType=VARCHAR}, 
+      #{openId,jdbcType=VARCHAR}, #{outDangerStatus,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, 
+      #{vehicleLicenceUrl,jdbcType=VARCHAR}, #{wechatImage,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.haojukej.pojo.WyUserRegister" >
+    insert into wy_user_register_tbl
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="openid != null" >
+        openId,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="endingtime != null" >
+        EndingTime,
+      </if>
+      <if test="account != null" >
+        account,
+      </if>
+      <if test="isfirstlly != null" >
+        IsFirstlly,
+      </if>
+      <if test="menberyon != null" >
+        MenberYoN,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="userstatus != null" >
+        Userstatus,
+      </if>
+      <if test="outdangerstatus != null" >
+        OutDangerStatus,
+      </if>
+      <if test="wechatimage != null" >
+        wechatImage,
+      </if>
+      <if test="wechat != null" >
+        wechat,
+      </if>
+      <if test="carid != null" >
+        carId,
+      </if>
+      <if test="idcard != null" >
+        IDcard,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="deleteflag != null" >
+        deleteFlag,
+      </if>
+      <if test="realname != null" >
+        realName,
+      </if>
+      <if test="cardid != null" >
+        cardId,
+      </if>
+      <if test="vehiclelicenceurl != null" >
+        VehicleLicenceUrl,
+      </if>
+      <if test="carId != null" >
+        car_id,
+      </if>
+      <if test="cardId != null" >
+        card_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag,
+      </if>
+      <if test="endingTime != null" >
+        ending_time,
+      </if>
+      <if test="iDcard != null" >
+        i_dcard,
+      </if>
+      <if test="isFirstlly != null" >
+        is_firstlly,
+      </if>
+      <if test="menberYon != null" >
+        menber_yon,
+      </if>
+      <if test="openId != null" >
+        open_id,
+      </if>
+      <if test="outDangerStatus != null" >
+        out_danger_status,
+      </if>
+      <if test="realName != null" >
+        real_name,
+      </if>
+      <if test="vehicleLicenceUrl != null" >
+        vehicle_licence_url,
+      </if>
+      <if test="wechatImage != null" >
+        wechat_image,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="endingtime != null" >
+        #{endingtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="account != null" >
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="isfirstlly != null" >
+        #{isfirstlly,jdbcType=VARCHAR},
+      </if>
+      <if test="menberyon != null" >
+        #{menberyon,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="userstatus != null" >
+        #{userstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="outdangerstatus != null" >
+        #{outdangerstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatimage != null" >
+        #{wechatimage,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="carid != null" >
+        #{carid,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null" >
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteflag != null" >
+        #{deleteflag,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="cardid != null" >
+        #{cardid,jdbcType=VARCHAR},
+      </if>
+      <if test="vehiclelicenceurl != null" >
+        #{vehiclelicenceurl,jdbcType=VARCHAR},
+      </if>
+      <if test="carId != null" >
+        #{carId,jdbcType=VARCHAR},
+      </if>
+      <if test="cardId != null" >
+        #{cardId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteFlag != null" >
+        #{deleteFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="endingTime != null" >
+        #{endingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="iDcard != null" >
+        #{iDcard,jdbcType=VARCHAR},
+      </if>
+      <if test="isFirstlly != null" >
+        #{isFirstlly,jdbcType=VARCHAR},
+      </if>
+      <if test="menberYon != null" >
+        #{menberYon,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null" >
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="outDangerStatus != null" >
+        #{outDangerStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleLicenceUrl != null" >
+        #{vehicleLicenceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatImage != null" >
+        #{wechatImage,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haojukej.pojo.WyUserRegister" >
+    update wy_user_register_tbl
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null" >
+        openId = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="endingtime != null" >
+        EndingTime = #{endingtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="account != null" >
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="isfirstlly != null" >
+        IsFirstlly = #{isfirstlly,jdbcType=VARCHAR},
+      </if>
+      <if test="menberyon != null" >
+        MenberYoN = #{menberyon,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="userstatus != null" >
+        Userstatus = #{userstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="outdangerstatus != null" >
+        OutDangerStatus = #{outdangerstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatimage != null" >
+        wechatImage = #{wechatimage,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="carid != null" >
+        carId = #{carid,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null" >
+        IDcard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteflag != null" >
+        deleteFlag = #{deleteflag,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        realName = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="cardid != null" >
+        cardId = #{cardid,jdbcType=VARCHAR},
+      </if>
+      <if test="vehiclelicenceurl != null" >
+        VehicleLicenceUrl = #{vehiclelicenceurl,jdbcType=VARCHAR},
+      </if>
+      <if test="carId != null" >
+        car_id = #{carId,jdbcType=VARCHAR},
+      </if>
+      <if test="cardId != null" >
+        card_id = #{cardId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag = #{deleteFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="endingTime != null" >
+        ending_time = #{endingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="iDcard != null" >
+        i_dcard = #{iDcard,jdbcType=VARCHAR},
+      </if>
+      <if test="isFirstlly != null" >
+        is_firstlly = #{isFirstlly,jdbcType=VARCHAR},
+      </if>
+      <if test="menberYon != null" >
+        menber_yon = #{menberYon,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null" >
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="outDangerStatus != null" >
+        out_danger_status = #{outDangerStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null" >
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleLicenceUrl != null" >
+        vehicle_licence_url = #{vehicleLicenceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatImage != null" >
+        wechat_image = #{wechatImage,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.haojukej.pojo.WyUserRegister" >
+    update wy_user_register_tbl
+    set name = #{name,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      openId = #{openid,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      password = #{password,jdbcType=VARCHAR},
+      EndingTime = #{endingtime,jdbcType=TIMESTAMP},
+      account = #{account,jdbcType=VARCHAR},
+      IsFirstlly = #{isfirstlly,jdbcType=VARCHAR},
+      MenberYoN = #{menberyon,jdbcType=VARCHAR},
+      money = #{money,jdbcType=DOUBLE},
+      Userstatus = #{userstatus,jdbcType=VARCHAR},
+      OutDangerStatus = #{outdangerstatus,jdbcType=VARCHAR},
+      wechatImage = #{wechatimage,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      carId = #{carid,jdbcType=VARCHAR},
+      IDcard = #{idcard,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      deleteFlag = #{deleteflag,jdbcType=VARCHAR},
+      realName = #{realname,jdbcType=VARCHAR},
+      cardId = #{cardid,jdbcType=VARCHAR},
+      VehicleLicenceUrl = #{vehiclelicenceurl,jdbcType=VARCHAR},
+      car_id = #{carId,jdbcType=VARCHAR},
+      card_id = #{cardId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      delete_flag = #{deleteFlag,jdbcType=VARCHAR},
+      ending_time = #{endingTime,jdbcType=TIMESTAMP},
+      i_dcard = #{iDcard,jdbcType=VARCHAR},
+      is_firstlly = #{isFirstlly,jdbcType=VARCHAR},
+      menber_yon = #{menberYon,jdbcType=VARCHAR},
+      open_id = #{openId,jdbcType=VARCHAR},
+      out_danger_status = #{outDangerStatus,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      vehicle_licence_url = #{vehicleLicenceUrl,jdbcType=VARCHAR},
+      wechat_image = #{wechatImage,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

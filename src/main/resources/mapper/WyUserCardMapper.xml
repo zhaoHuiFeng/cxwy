@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.haojukej.mapper.WyUserCardMapper" >
+  <resultMap id="BaseResultMap" type="com.haojukej.pojo.WyUserCard" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="cardId" property="cardid" jdbcType="INTEGER" />
+    <result column="deleteFlag" property="deleteflag" jdbcType="VARCHAR" />
+    <result column="startDate" property="startdate" jdbcType="TIMESTAMP" />
+    <result column="endDate" property="enddate" jdbcType="TIMESTAMP" />
+    <result column="card_id" property="cardId" jdbcType="INTEGER" />
+    <result column="delete_flag" property="deleteFlag" jdbcType="VARCHAR" />
+    <result column="end_date" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="start_date" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userId, cardId, deleteFlag, startDate, endDate, card_id, delete_flag, end_date, 
+    start_date, user_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wy_user_card_tbl
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wy_user_card_tbl
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.haojukej.pojo.WyUserCard" >
+    insert into wy_user_card_tbl (id, userId, cardId, 
+      deleteFlag, startDate, endDate, 
+      card_id, delete_flag, end_date, 
+      start_date, user_id)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{cardid,jdbcType=INTEGER}, 
+      #{deleteflag,jdbcType=VARCHAR}, #{startdate,jdbcType=TIMESTAMP}, #{enddate,jdbcType=TIMESTAMP}, 
+      #{cardId,jdbcType=INTEGER}, #{deleteFlag,jdbcType=VARCHAR}, #{endDate,jdbcType=TIMESTAMP}, 
+      #{startDate,jdbcType=TIMESTAMP}, #{userId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.haojukej.pojo.WyUserCard" >
+    insert into wy_user_card_tbl
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="cardid != null" >
+        cardId,
+      </if>
+      <if test="deleteflag != null" >
+        deleteFlag,
+      </if>
+      <if test="startdate != null" >
+        startDate,
+      </if>
+      <if test="enddate != null" >
+        endDate,
+      </if>
+      <if test="cardId != null" >
+        card_id,
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag,
+      </if>
+      <if test="endDate != null" >
+        end_date,
+      </if>
+      <if test="startDate != null" >
+        start_date,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="cardid != null" >
+        #{cardid,jdbcType=INTEGER},
+      </if>
+      <if test="deleteflag != null" >
+        #{deleteflag,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null" >
+        #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null" >
+        #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cardId != null" >
+        #{cardId,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null" >
+        #{deleteFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haojukej.pojo.WyUserCard" >
+    update wy_user_card_tbl
+    <set >
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="cardid != null" >
+        cardId = #{cardid,jdbcType=INTEGER},
+      </if>
+      <if test="deleteflag != null" >
+        deleteFlag = #{deleteflag,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null" >
+        startDate = #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null" >
+        endDate = #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cardId != null" >
+        card_id = #{cardId,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag = #{deleteFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null" >
+        end_date = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startDate != null" >
+        start_date = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.haojukej.pojo.WyUserCard" >
+    update wy_user_card_tbl
+    set userId = #{userid,jdbcType=INTEGER},
+      cardId = #{cardid,jdbcType=INTEGER},
+      deleteFlag = #{deleteflag,jdbcType=VARCHAR},
+      startDate = #{startdate,jdbcType=TIMESTAMP},
+      endDate = #{enddate,jdbcType=TIMESTAMP},
+      card_id = #{cardId,jdbcType=INTEGER},
+      delete_flag = #{deleteFlag,jdbcType=VARCHAR},
+      end_date = #{endDate,jdbcType=TIMESTAMP},
+      start_date = #{startDate,jdbcType=TIMESTAMP},
+      user_id = #{userId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

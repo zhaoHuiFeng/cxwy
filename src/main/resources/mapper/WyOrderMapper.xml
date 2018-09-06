@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.haojukej.mapper.WyOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.haojukej.pojo.WyOrder" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="userOpenId" property="useropenid" jdbcType="VARCHAR" />
+    <result column="bussenssInfoId" property="bussenssinfoid" jdbcType="INTEGER" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="setTime" property="settime" jdbcType="TIMESTAMP" />
+    <result column="OrderCategoryId" property="ordercategoryid" jdbcType="INTEGER" />
+    <result column="isShow" property="isshow" jdbcType="VARCHAR" />
+    <result column="showTitle" property="showtitle" jdbcType="VARCHAR" />
+    <result column="showImg1" property="showimg1" jdbcType="VARCHAR" />
+    <result column="showImg2" property="showimg2" jdbcType="VARCHAR" />
+    <result column="showImg3" property="showimg3" jdbcType="VARCHAR" />
+    <result column="showImg4" property="showimg4" jdbcType="VARCHAR" />
+    <result column="showImg5" property="showimg5" jdbcType="VARCHAR" />
+    <result column="activityTime" property="activitytime" jdbcType="TIMESTAMP" />
+    <result column="selfPay" property="selfpay" jdbcType="DOUBLE" />
+    <result column="otherPay" property="otherpay" jdbcType="DOUBLE" />
+    <result column="orderAmount" property="orderamount" jdbcType="DOUBLE" />
+    <result column="dealPerson" property="dealperson" jdbcType="VARCHAR" />
+    <result column="event" property="event" jdbcType="VARCHAR" />
+    <result column="cardId" property="cardid" jdbcType="INTEGER" />
+    <result column="orderAddress" property="orderaddress" jdbcType="VARCHAR" />
+    <result column="activity_time" property="activityTime" jdbcType="TIMESTAMP" />
+    <result column="bussenss_info_id" property="bussenssInfoId" jdbcType="INTEGER" />
+    <result column="card_id" property="cardId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="deal_person" property="dealPerson" jdbcType="VARCHAR" />
+    <result column="is_show" property="isShow" jdbcType="VARCHAR" />
+    <result column="order_address" property="orderAddress" jdbcType="VARCHAR" />
+    <result column="order_amount" property="orderAmount" jdbcType="DOUBLE" />
+    <result column="order_category_id" property="orderCategoryId" jdbcType="INTEGER" />
+    <result column="other_pay" property="otherPay" jdbcType="DOUBLE" />
+    <result column="self_pay" property="selfPay" jdbcType="DOUBLE" />
+    <result column="set_time" property="setTime" jdbcType="TIMESTAMP" />
+    <result column="show_img1" property="showImg1" jdbcType="VARCHAR" />
+    <result column="show_img2" property="showImg2" jdbcType="VARCHAR" />
+    <result column="show_img3" property="showImg3" jdbcType="VARCHAR" />
+    <result column="show_img4" property="showImg4" jdbcType="VARCHAR" />
+    <result column="show_img5" property="showImg5" jdbcType="VARCHAR" />
+    <result column="show_title" property="showTitle" jdbcType="VARCHAR" />
+    <result column="user_open_id" property="userOpenId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userOpenId, bussenssInfoId, createTime, status, setTime, OrderCategoryId, isShow, 
+    showTitle, showImg1, showImg2, showImg3, showImg4, showImg5, activityTime, selfPay, 
+    otherPay, orderAmount, dealPerson, event, cardId, orderAddress, activity_time, bussenss_info_id, 
+    card_id, create_time, deal_person, is_show, order_address, order_amount, order_category_id, 
+    other_pay, self_pay, set_time, show_img1, show_img2, show_img3, show_img4, show_img5, 
+    show_title, user_open_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wy_order_tbl
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wy_order_tbl
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.haojukej.pojo.WyOrder" >
+    insert into wy_order_tbl (id, userOpenId, bussenssInfoId, 
+      createTime, status, setTime, 
+      OrderCategoryId, isShow, showTitle, 
+      showImg1, showImg2, showImg3, 
+      showImg4, showImg5, activityTime, 
+      selfPay, otherPay, orderAmount, 
+      dealPerson, event, cardId, 
+      orderAddress, activity_time, bussenss_info_id, 
+      card_id, create_time, deal_person, 
+      is_show, order_address, order_amount, 
+      order_category_id, other_pay, self_pay, 
+      set_time, show_img1, show_img2, 
+      show_img3, show_img4, show_img5, 
+      show_title, user_open_id)
+    values (#{id,jdbcType=INTEGER}, #{useropenid,jdbcType=VARCHAR}, #{bussenssinfoid,jdbcType=INTEGER}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{settime,jdbcType=TIMESTAMP}, 
+      #{ordercategoryid,jdbcType=INTEGER}, #{isshow,jdbcType=VARCHAR}, #{showtitle,jdbcType=VARCHAR}, 
+      #{showimg1,jdbcType=VARCHAR}, #{showimg2,jdbcType=VARCHAR}, #{showimg3,jdbcType=VARCHAR}, 
+      #{showimg4,jdbcType=VARCHAR}, #{showimg5,jdbcType=VARCHAR}, #{activitytime,jdbcType=TIMESTAMP}, 
+      #{selfpay,jdbcType=DOUBLE}, #{otherpay,jdbcType=DOUBLE}, #{orderamount,jdbcType=DOUBLE}, 
+      #{dealperson,jdbcType=VARCHAR}, #{event,jdbcType=VARCHAR}, #{cardid,jdbcType=INTEGER}, 
+      #{orderaddress,jdbcType=VARCHAR}, #{activityTime,jdbcType=TIMESTAMP}, #{bussenssInfoId,jdbcType=INTEGER}, 
+      #{cardId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{dealPerson,jdbcType=VARCHAR}, 
+      #{isShow,jdbcType=VARCHAR}, #{orderAddress,jdbcType=VARCHAR}, #{orderAmount,jdbcType=DOUBLE}, 
+      #{orderCategoryId,jdbcType=INTEGER}, #{otherPay,jdbcType=DOUBLE}, #{selfPay,jdbcType=DOUBLE}, 
+      #{setTime,jdbcType=TIMESTAMP}, #{showImg1,jdbcType=VARCHAR}, #{showImg2,jdbcType=VARCHAR}, 
+      #{showImg3,jdbcType=VARCHAR}, #{showImg4,jdbcType=VARCHAR}, #{showImg5,jdbcType=VARCHAR}, 
+      #{showTitle,jdbcType=VARCHAR}, #{userOpenId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.haojukej.pojo.WyOrder" >
+    insert into wy_order_tbl
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="useropenid != null" >
+        userOpenId,
+      </if>
+      <if test="bussenssinfoid != null" >
+        bussenssInfoId,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="settime != null" >
+        setTime,
+      </if>
+      <if test="ordercategoryid != null" >
+        OrderCategoryId,
+      </if>
+      <if test="isshow != null" >
+        isShow,
+      </if>
+      <if test="showtitle != null" >
+        showTitle,
+      </if>
+      <if test="showimg1 != null" >
+        showImg1,
+      </if>
+      <if test="showimg2 != null" >
+        showImg2,
+      </if>
+      <if test="showimg3 != null" >
+        showImg3,
+      </if>
+      <if test="showimg4 != null" >
+        showImg4,
+      </if>
+      <if test="showimg5 != null" >
+        showImg5,
+      </if>
+      <if test="activitytime != null" >
+        activityTime,
+      </if>
+      <if test="selfpay != null" >
+        selfPay,
+      </if>
+      <if test="otherpay != null" >
+        otherPay,
+      </if>
+      <if test="orderamount != null" >
+        orderAmount,
+      </if>
+      <if test="dealperson != null" >
+        dealPerson,
+      </if>
+      <if test="event != null" >
+        event,
+      </if>
+      <if test="cardid != null" >
+        cardId,
+      </if>
+      <if test="orderaddress != null" >
+        orderAddress,
+      </if>
+      <if test="activityTime != null" >
+        activity_time,
+      </if>
+      <if test="bussenssInfoId != null" >
+        bussenss_info_id,
+      </if>
+      <if test="cardId != null" >
+        card_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="dealPerson != null" >
+        deal_person,
+      </if>
+      <if test="isShow != null" >
+        is_show,
+      </if>
+      <if test="orderAddress != null" >
+        order_address,
+      </if>
+      <if test="orderAmount != null" >
+        order_amount,
+      </if>
+      <if test="orderCategoryId != null" >
+        order_category_id,
+      </if>
+      <if test="otherPay != null" >
+        other_pay,
+      </if>
+      <if test="selfPay != null" >
+        self_pay,
+      </if>
+      <if test="setTime != null" >
+        set_time,
+      </if>
+      <if test="showImg1 != null" >
+        show_img1,
+      </if>
+      <if test="showImg2 != null" >
+        show_img2,
+      </if>
+      <if test="showImg3 != null" >
+        show_img3,
+      </if>
+      <if test="showImg4 != null" >
+        show_img4,
+      </if>
+      <if test="showImg5 != null" >
+        show_img5,
+      </if>
+      <if test="showTitle != null" >
+        show_title,
+      </if>
+      <if test="userOpenId != null" >
+        user_open_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="useropenid != null" >
+        #{useropenid,jdbcType=VARCHAR},
+      </if>
+      <if test="bussenssinfoid != null" >
+        #{bussenssinfoid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="settime != null" >
+        #{settime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ordercategoryid != null" >
+        #{ordercategoryid,jdbcType=INTEGER},
+      </if>
+      <if test="isshow != null" >
+        #{isshow,jdbcType=VARCHAR},
+      </if>
+      <if test="showtitle != null" >
+        #{showtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="showimg1 != null" >
+        #{showimg1,jdbcType=VARCHAR},
+      </if>
+      <if test="showimg2 != null" >
+        #{showimg2,jdbcType=VARCHAR},
+      </if>
+      <if test="showimg3 != null" >
+        #{showimg3,jdbcType=VARCHAR},
+      </if>
+      <if test="showimg4 != null" >
+        #{showimg4,jdbcType=VARCHAR},
+      </if>
+      <if test="showimg5 != null" >
+        #{showimg5,jdbcType=VARCHAR},
+      </if>
+      <if test="activitytime != null" >
+        #{activitytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="selfpay != null" >
+        #{selfpay,jdbcType=DOUBLE},
+      </if>
+      <if test="otherpay != null" >
+        #{otherpay,jdbcType=DOUBLE},
+      </if>
+      <if test="orderamount != null" >
+        #{orderamount,jdbcType=DOUBLE},
+      </if>
+      <if test="dealperson != null" >
+        #{dealperson,jdbcType=VARCHAR},
+      </if>
+      <if test="event != null" >
+        #{event,jdbcType=VARCHAR},
+      </if>
+      <if test="cardid != null" >
+        #{cardid,jdbcType=INTEGER},
+      </if>
+      <if test="orderaddress != null" >
+        #{orderaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="activityTime != null" >
+        #{activityTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bussenssInfoId != null" >
+        #{bussenssInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="cardId != null" >
+        #{cardId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealPerson != null" >
+        #{dealPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="isShow != null" >
+        #{isShow,jdbcType=VARCHAR},
+      </if>
+      <if test="orderAddress != null" >
+        #{orderAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="orderAmount != null" >
+        #{orderAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="orderCategoryId != null" >
+        #{orderCategoryId,jdbcType=INTEGER},
+      </if>
+      <if test="otherPay != null" >
+        #{otherPay,jdbcType=DOUBLE},
+      </if>
+      <if test="selfPay != null" >
+        #{selfPay,jdbcType=DOUBLE},
+      </if>
+      <if test="setTime != null" >
+        #{setTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="showImg1 != null" >
+        #{showImg1,jdbcType=VARCHAR},
+      </if>
+      <if test="showImg2 != null" >
+        #{showImg2,jdbcType=VARCHAR},
+      </if>
+      <if test="showImg3 != null" >
+        #{showImg3,jdbcType=VARCHAR},
+      </if>
+      <if test="showImg4 != null" >
+        #{showImg4,jdbcType=VARCHAR},
+      </if>
+      <if test="showImg5 != null" >
+        #{showImg5,jdbcType=VARCHAR},
+      </if>
+      <if test="showTitle != null" >
+        #{showTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="userOpenId != null" >
+        #{userOpenId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haojukej.pojo.WyOrder" >
+    update wy_order_tbl
+    <set >
+      <if test="useropenid != null" >
+        userOpenId = #{useropenid,jdbcType=VARCHAR},
+      </if>
+      <if test="bussenssinfoid != null" >
+        bussenssInfoId = #{bussenssinfoid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="settime != null" >
+        setTime = #{settime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ordercategoryid != null" >
+        OrderCategoryId = #{ordercategoryid,jdbcType=INTEGER},
+      </if>
+      <if test="isshow != null" >
+        isShow = #{isshow,jdbcType=VARCHAR},
+      </if>
+      <if test="showtitle != null" >
+        showTitle = #{showtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="showimg1 != null" >
+        showImg1 = #{showimg1,jdbcType=VARCHAR},
+      </if>
+      <if test="showimg2 != null" >
+        showImg2 = #{showimg2,jdbcType=VARCHAR},
+      </if>
+      <if test="showimg3 != null" >
+        showImg3 = #{showimg3,jdbcType=VARCHAR},
+      </if>
+      <if test="showimg4 != null" >
+        showImg4 = #{showimg4,jdbcType=VARCHAR},
+      </if>
+      <if test="showimg5 != null" >
+        showImg5 = #{showimg5,jdbcType=VARCHAR},
+      </if>
+      <if test="activitytime != null" >
+        activityTime = #{activitytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="selfpay != null" >
+        selfPay = #{selfpay,jdbcType=DOUBLE},
+      </if>
+      <if test="otherpay != null" >
+        otherPay = #{otherpay,jdbcType=DOUBLE},
+      </if>
+      <if test="orderamount != null" >
+        orderAmount = #{orderamount,jdbcType=DOUBLE},
+      </if>
+      <if test="dealperson != null" >
+        dealPerson = #{dealperson,jdbcType=VARCHAR},
+      </if>
+      <if test="event != null" >
+        event = #{event,jdbcType=VARCHAR},
+      </if>
+      <if test="cardid != null" >
+        cardId = #{cardid,jdbcType=INTEGER},
+      </if>
+      <if test="orderaddress != null" >
+        orderAddress = #{orderaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="activityTime != null" >
+        activity_time = #{activityTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bussenssInfoId != null" >
+        bussenss_info_id = #{bussenssInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="cardId != null" >
+        card_id = #{cardId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealPerson != null" >
+        deal_person = #{dealPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="isShow != null" >
+        is_show = #{isShow,jdbcType=VARCHAR},
+      </if>
+      <if test="orderAddress != null" >
+        order_address = #{orderAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="orderAmount != null" >
+        order_amount = #{orderAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="orderCategoryId != null" >
+        order_category_id = #{orderCategoryId,jdbcType=INTEGER},
+      </if>
+      <if test="otherPay != null" >
+        other_pay = #{otherPay,jdbcType=DOUBLE},
+      </if>
+      <if test="selfPay != null" >
+        self_pay = #{selfPay,jdbcType=DOUBLE},
+      </if>
+      <if test="setTime != null" >
+        set_time = #{setTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="showImg1 != null" >
+        show_img1 = #{showImg1,jdbcType=VARCHAR},
+      </if>
+      <if test="showImg2 != null" >
+        show_img2 = #{showImg2,jdbcType=VARCHAR},
+      </if>
+      <if test="showImg3 != null" >
+        show_img3 = #{showImg3,jdbcType=VARCHAR},
+      </if>
+      <if test="showImg4 != null" >
+        show_img4 = #{showImg4,jdbcType=VARCHAR},
+      </if>
+      <if test="showImg5 != null" >
+        show_img5 = #{showImg5,jdbcType=VARCHAR},
+      </if>
+      <if test="showTitle != null" >
+        show_title = #{showTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="userOpenId != null" >
+        user_open_id = #{userOpenId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.haojukej.pojo.WyOrder" >
+    update wy_order_tbl
+    set userOpenId = #{useropenid,jdbcType=VARCHAR},
+      bussenssInfoId = #{bussenssinfoid,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
+      setTime = #{settime,jdbcType=TIMESTAMP},
+      OrderCategoryId = #{ordercategoryid,jdbcType=INTEGER},
+      isShow = #{isshow,jdbcType=VARCHAR},
+      showTitle = #{showtitle,jdbcType=VARCHAR},
+      showImg1 = #{showimg1,jdbcType=VARCHAR},
+      showImg2 = #{showimg2,jdbcType=VARCHAR},
+      showImg3 = #{showimg3,jdbcType=VARCHAR},
+      showImg4 = #{showimg4,jdbcType=VARCHAR},
+      showImg5 = #{showimg5,jdbcType=VARCHAR},
+      activityTime = #{activitytime,jdbcType=TIMESTAMP},
+      selfPay = #{selfpay,jdbcType=DOUBLE},
+      otherPay = #{otherpay,jdbcType=DOUBLE},
+      orderAmount = #{orderamount,jdbcType=DOUBLE},
+      dealPerson = #{dealperson,jdbcType=VARCHAR},
+      event = #{event,jdbcType=VARCHAR},
+      cardId = #{cardid,jdbcType=INTEGER},
+      orderAddress = #{orderaddress,jdbcType=VARCHAR},
+      activity_time = #{activityTime,jdbcType=TIMESTAMP},
+      bussenss_info_id = #{bussenssInfoId,jdbcType=INTEGER},
+      card_id = #{cardId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      deal_person = #{dealPerson,jdbcType=VARCHAR},
+      is_show = #{isShow,jdbcType=VARCHAR},
+      order_address = #{orderAddress,jdbcType=VARCHAR},
+      order_amount = #{orderAmount,jdbcType=DOUBLE},
+      order_category_id = #{orderCategoryId,jdbcType=INTEGER},
+      other_pay = #{otherPay,jdbcType=DOUBLE},
+      self_pay = #{selfPay,jdbcType=DOUBLE},
+      set_time = #{setTime,jdbcType=TIMESTAMP},
+      show_img1 = #{showImg1,jdbcType=VARCHAR},
+      show_img2 = #{showImg2,jdbcType=VARCHAR},
+      show_img3 = #{showImg3,jdbcType=VARCHAR},
+      show_img4 = #{showImg4,jdbcType=VARCHAR},
+      show_img5 = #{showImg5,jdbcType=VARCHAR},
+      show_title = #{showTitle,jdbcType=VARCHAR},
+      user_open_id = #{userOpenId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

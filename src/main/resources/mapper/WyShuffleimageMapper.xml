@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.haojukej.mapper.WyShuffleimageMapper" >
+  <resultMap id="BaseResultMap" type="com.haojukej.pojo.WyShuffleimage" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="image" property="image" jdbcType="VARCHAR" />
+    <result column="jumpAddress" property="jumpaddress" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="deleteFlag" property="deleteflag" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="delete_flag" property="deleteFlag" jdbcType="VARCHAR" />
+    <result column="jump_address" property="jumpAddress" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, image, jumpAddress, createTime, deleteFlag, url, create_time, delete_flag, jump_address
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wy_shuffleimage_tbl
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wy_shuffleimage_tbl
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.haojukej.pojo.WyShuffleimage" >
+    insert into wy_shuffleimage_tbl (id, image, jumpAddress, 
+      createTime, deleteFlag, url, 
+      create_time, delete_flag, jump_address
+      )
+    values (#{id,jdbcType=INTEGER}, #{image,jdbcType=VARCHAR}, #{jumpaddress,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{deleteflag,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{deleteFlag,jdbcType=VARCHAR}, #{jumpAddress,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.haojukej.pojo.WyShuffleimage" >
+    insert into wy_shuffleimage_tbl
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="image != null" >
+        image,
+      </if>
+      <if test="jumpaddress != null" >
+        jumpAddress,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="deleteflag != null" >
+        deleteFlag,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag,
+      </if>
+      <if test="jumpAddress != null" >
+        jump_address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="image != null" >
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="jumpaddress != null" >
+        #{jumpaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteflag != null" >
+        #{deleteflag,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteFlag != null" >
+        #{deleteFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="jumpAddress != null" >
+        #{jumpAddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haojukej.pojo.WyShuffleimage" >
+    update wy_shuffleimage_tbl
+    <set >
+      <if test="image != null" >
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="jumpaddress != null" >
+        jumpAddress = #{jumpaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteflag != null" >
+        deleteFlag = #{deleteflag,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag = #{deleteFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="jumpAddress != null" >
+        jump_address = #{jumpAddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.haojukej.pojo.WyShuffleimage" >
+    update wy_shuffleimage_tbl
+    set image = #{image,jdbcType=VARCHAR},
+      jumpAddress = #{jumpaddress,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      deleteFlag = #{deleteflag,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      delete_flag = #{deleteFlag,jdbcType=VARCHAR},
+      jump_address = #{jumpAddress,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

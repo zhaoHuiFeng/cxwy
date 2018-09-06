@@ -1,0 +1,34 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    name: test
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cxwyv0.2?characterEncoding=utf8
+    username: root
+    password: root
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+  freemarker:
+    request-context-attribute: req
+    allow-request-override: false
+    cache: true
+    check-template-location: true
+    charset: UTF-8
+    content-type: text/html
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: false
+#  activemq:
+#    broker-url: tcp://127.0.0.1:61616
+#    admin: admin
+#    password: admin
+#    in-memory: true
+#    pool.enabled: false
+#    packages:
+#      trust-all: true
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.haojukej.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

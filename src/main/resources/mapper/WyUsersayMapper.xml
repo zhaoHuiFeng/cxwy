@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.haojukej.mapper.WyUsersayMapper" >
+  <resultMap id="BaseResultMap" type="com.haojukej.pojo.WyUsersay" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="desc" property="desc" jdbcType="VARCHAR" />
+    <result column="userSay" property="usersay" jdbcType="VARCHAR" />
+    <result column="userHead" property="userhead" jdbcType="VARCHAR" />
+    <result column="deleteFlag" property="deleteflag" jdbcType="VARCHAR" />
+    <result column="delete_flag" property="deleteFlag" jdbcType="VARCHAR" />
+    <result column="user_head" property="userHead" jdbcType="VARCHAR" />
+    <result column="user_say" property="userSay" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, desc, userSay, userHead, deleteFlag, delete_flag, user_head, user_say
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wy_usersay_tbl
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wy_usersay_tbl
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.haojukej.pojo.WyUsersay" >
+    insert into wy_usersay_tbl (id, name, desc, 
+      userSay, userHead, deleteFlag, 
+      delete_flag, user_head, user_say
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{desc,jdbcType=VARCHAR}, 
+      #{usersay,jdbcType=VARCHAR}, #{userhead,jdbcType=VARCHAR}, #{deleteflag,jdbcType=VARCHAR}, 
+      #{deleteFlag,jdbcType=VARCHAR}, #{userHead,jdbcType=VARCHAR}, #{userSay,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.haojukej.pojo.WyUsersay" >
+    insert into wy_usersay_tbl
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="desc != null" >
+        desc,
+      </if>
+      <if test="usersay != null" >
+        userSay,
+      </if>
+      <if test="userhead != null" >
+        userHead,
+      </if>
+      <if test="deleteflag != null" >
+        deleteFlag,
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag,
+      </if>
+      <if test="userHead != null" >
+        user_head,
+      </if>
+      <if test="userSay != null" >
+        user_say,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null" >
+        #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="usersay != null" >
+        #{usersay,jdbcType=VARCHAR},
+      </if>
+      <if test="userhead != null" >
+        #{userhead,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteflag != null" >
+        #{deleteflag,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlag != null" >
+        #{deleteFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="userHead != null" >
+        #{userHead,jdbcType=VARCHAR},
+      </if>
+      <if test="userSay != null" >
+        #{userSay,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haojukej.pojo.WyUsersay" >
+    update wy_usersay_tbl
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null" >
+        desc = #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="usersay != null" >
+        userSay = #{usersay,jdbcType=VARCHAR},
+      </if>
+      <if test="userhead != null" >
+        userHead = #{userhead,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteflag != null" >
+        deleteFlag = #{deleteflag,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag = #{deleteFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="userHead != null" >
+        user_head = #{userHead,jdbcType=VARCHAR},
+      </if>
+      <if test="userSay != null" >
+        user_say = #{userSay,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.haojukej.pojo.WyUsersay" >
+    update wy_usersay_tbl
+    set name = #{name,jdbcType=VARCHAR},
+      desc = #{desc,jdbcType=VARCHAR},
+      userSay = #{usersay,jdbcType=VARCHAR},
+      userHead = #{userhead,jdbcType=VARCHAR},
+      deleteFlag = #{deleteflag,jdbcType=VARCHAR},
+      delete_flag = #{deleteFlag,jdbcType=VARCHAR},
+      user_head = #{userHead,jdbcType=VARCHAR},
+      user_say = #{userSay,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
